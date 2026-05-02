@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>المرجع الكامل: القياسات والأعطال خطوة بخطوة | صيانة الموبايل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f4fcf9;
+            color: #0a2e2a;
+            padding: 1.5rem 1rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .main-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f2b3d, #1e6f5c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            border-right: 6px solid #1e6f5c;
+            padding-right: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .section-sub {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin: 2rem 0 1.2rem 0;
+            padding-right: 0.8rem;
+            border-right: 5px solid #289672;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.6rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            border: 1px solid #d5ece4;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background: #f9fefc;
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid #d5ece4;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .card-header i {
+            font-size: 1.8rem;
+            color: #289672;
+        }
+        .card-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .card-body {
+            padding: 1.2rem;
+        }
+        .step-list {
+            list-style: none;
+            margin: 0.8rem 0;
+        }
+        .step-list li {
+            background: #f0f9f6;
+            margin-bottom: 0.7rem;
+            padding: 0.6rem 0.8rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .step-number {
+            background: #1e6f5c;
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .voltage-badge {
+            background: #e0f2e9;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.6rem 0;
+        }
+        .result-box {
+            background: #fff7e0;
+            border-right: 4px solid #f4b942;
+            padding: 0.7rem 1rem;
+            border-radius: 0.8rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        .warning-note {
+            background: #ffe8e6;
+            border-right: 4px solid #d9534f;
+            padding: 0.7rem 1rem;
+            border-radius: 0.8rem;
+            margin-top: 1rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .diagnostic-wrapper {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-top: 6px solid #289672;
+        }
+        .btn-diagnose {
+            background: linear-gradient(135deg, #1e6f5c, #0e4c3e);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+        }
+        .btn-diagnose:hover {
+            background: #0e4c3e;
+            transform: scale(1.02);
+        }
+        .question-area {
+            background: #f8fdfb;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            margin: 1rem 0;
+        }
+        .btn-option {
+            background: #d4ece4;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            margin: 0.4rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+        }
+        .status-green {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 0.25rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 700;
+        }
+        .status-red {
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 0.25rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 700;
+        }
+        hr {
+            margin: 0.8rem 0;
+            border-color: #cde0da;
+        }
+        @media (max-width:640px) {
+            body { padding: 1rem; }
+            .main-title { font-size: 1.6rem; }
+        }
+        footer {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding: 1rem;
+            color: #4f7a6e;
+            border-top: 1px solid #cde0da;
+        }
+        .simple-icon {
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="main-title">
+        <i class="fas fa-microscope"></i> 📚 القياسات الاحترافية + تشخيص كل الأعطال (شرح خطوة بخطوة)
+    </div>
+
+    <!-- ========== القسم الأول: القياسات بالتفصيل ========== -->
+    <div class="section-sub"><i class="fas fa-tachometer-alt"></i> 1️⃣ تعلم القياس خطوة بخطوة (للمبتدئين)</div>
+    <div class="cards-grid">
+        <!-- بطارية -->
+        <div class="card">
+            <div class="card-header"><i class="fas fa-car-battery"></i><h3>⚡ قياس البطارية</h3></div>
+            <div class="card-body">
+                <p><strong>📌 شرح بسيط: الفولت</strong> هو قوة الدفع الكهربائي. البطارية السليمة تعطي جهداً بين 3.7 و 4.2 فولت.</p>
+                <ul class="step-list">
+                    <li><span class="step-number">1</span>أدر قرص الأفوميتر على وضع DCV (تيار مستمر) واختر تدريج 20V.</li>
+                    <li><span class="step-number">2</span>ضع الطرف الأحمر (السلك الموجب) على نقطة B+ للبطارية.</li>
+                    <li><span class="step-number">3</span>ضع الطرف الأسود (السالب) على النقطة GND (أرضي البطارية).</li>
+                </ul>
+                <div class="voltage-badge">📊 القيم الطبيعية: 3.7V (منخفض) – 4.2V (مشحون بالكامل)</div>
+                <div class="result-box">
+                    <i class="fas fa-check-circle status-green"></i> <strong>ماذا تعني النتائج؟</strong><br>
+                    • أقل من 3.7V → 🔴 البطارية ضعيفة أو تالفة (استبدلها).<br>
+                    • 0.00V → ⚫ فصل داخلي (البطارية ميتة تماماً).<br>
+                    • 4.2V → 🟢 بطارية سليمة.
+                </div>
+                <div class="warning-note">⚠️ انتبه: لا تقصر الطرفين معاً، واسحب البطارية من اللوحة قبل القياس.</div>
+            </div>
+        </div>
+        <!-- قياس الشورت (الجرس) -->
+        <div class="card">
+            <div class="card-header"><i class="fas fa-bolt"></i><h3>🔍 كشف الدائرة القصيرة Short</h3></div>
+            <div class="card-body">
+                <p>استخدم <strong>وضع الجرس (Buzzer)</strong> في الأفوميتر لمعرفة إذا كان هناك شورت بين خط التغذية والأرضي.</p>
+                <ul class="step-list">
+                    <li><span class="step-number">1</span>ضع الأفوميتر على وضع الجرس (رمز الموجة الصوتية).</li>
+                    <li><span class="step-number">2</span>ضع طرفاً على نقطة Vcc (مثلاً طرف البطارية الموجب) والطرف الآخر على الأرضي (GND).</li>
+                    <li><span class="step-number">3</span>استمع: إذا صدر صوت متواصل → يوجد شورت، وإذا لم يصدر → لا يوجد شورت.</li>
+                </ul>
+                <div class="result-box">
+                    🔊 <strong>تفسير الصفارة:</strong><br>
+                    • صفير قوي ومستمر → <span class="status-red">Short (عطل) – مقاومة أقل من 5 أوم</span><br>
+                    • بدون صوت أو صفير ضعيف → <span class="status-green">لا يوجد شورت (سليم)</span>
+                </div>
+                <div class="warning-note">⚠️ قبل قياس الشورت، تأكد أن اللوحة غير موصولة بالبطارية أو أي مصدر طاقة.</div>
+            </div>
+        </div>
+        <!-- قياس الباور سبلاي (دائرة الباور) -->
+        <div class="card">
+            <div class="card-header"><i class="fas fa-plug"></i><h3>🔋 قياس دائرة الباور (باور سبلاي)</h3></div>
+            <div class="card-body">
+                <p>استخدم مصدر الطاقة (Power Supply) لفحص استهلاك التيار ومعرفة صحة اللوحة.</p>
+                <ul class="step-list">
+                    <li><span class="step-number">1</span>اضبط الباور سبلاي على جهد 4.2V وحد تيار 1.5A.</li>
+                    <li><span class="step-number">2</span>وصل السلك الأحمر (+) بنقطة B+ والكابل الأسود (-) بـ GND.</li>
+                    <li><span class="step-number">3</span>شغّل الباور وراقب قراءة الأمبير (التيار).</li>
+                </ul>
+                <div class="result-box">
+                    📈 <strong>تفسير سحب التيار:</strong><br>
+                    • <span class="status-red">0.00A → لا يوجد تشغيل (دارة مفتوحة أو انقطاع)</span><br>
+                    • <span class="status-red">تيار ثابت عالي (>0.6A) بدون ضغط زر → شورت في اللوحة</span><br>
+                    • <span class="status-green">تيار متدرج (0.05A ثم يرتفع إلى 0.2A) → طبيعي وبدء تشغيل سليم ✅</span>
+                </div>
+                <div class="warning-note">⚠️ لا ترفع الجهد عن 4.5V حتى لا تتلف الـ PMIC، واحذر من ملامسة النقاط.</div>
+            </div>
+        </div>
+        <!-- قياس الشاشة -->
+        <div class="card">
+            <div class="card-header"><i class="fas fa-mobile-alt"></i><h3>📱 قياس فولت الشاشة والإضاءة</h3></div>
+            <div class="card-body">
+                <ul class="step-list">
+                    <li><span class="step-number">1</span>افصل الشاشة واقرأ فولت AVDD (الخاص بتشغيل الشاشة) – يجب 5.5V إلى 6V.</li>
+                    <li><span class="step-number">2</span>لقياس الإضاءة الخلفية: ضع الأفوميتر على DCV 200V (لأن الجهد يصل 30V).</li>
+                    <li><span class="step-number">3</span>قس بين أنود (+) وكاثود (-) لليدات الإضاءة، الجهد الطبيعي: 16V–30V.</li>
+                </ul>
+                <div class="result-box">
+                    💡 <strong>ماذا تفعل إذا لا يوجد إضاءة؟</strong><br>
+                    • إذا كان فولت الباكلايت صفراً → افحص ملف الـ Boost (مقاومته 0.5-3 أوم).<br>
+                    • إذا الملف سليم → استبدل IC backlight.<br>
+                    • إذا الفولت موجود لكن لا إضاءة → الشاشة تالفة.
+                </div>
+            </div>
+        </div>
+        <!-- قياس السماعة والميكروفون -->
+        <div class="card">
+            <div class="card-header"><i class="fas fa-headphones"></i><h3>🎧 قياس السماعة والميكروفون</h3></div>
+            <div class="card-body">
+                <ul class="step-list">
+                    <li><span class="step-number">1</span>ضع الأفوميتر على وضع المقاومة (200Ω) لقياس السماعة.</li>
+                    <li><span class="step-number">2</span>المس طرفي السماعة: القيمة الصحيحة ~8Ω (إذا كانت مفتوحة OL → السماعة تالفة).</li>
+                    <li><span class="step-number">3</span>لقياس Bias الميكروفون: استخدم DCV 20V ، الطرف الأحمر على طرف الميكروفون (Bias) والأسود على GND، القيمة الطبيعية 1.8V – 2.8V.</li>
+                </ul>
+                <div class="result-box">إذا غاب Bias (0V) → IC الصوت معطوب.</div>
+            </div>
+        </div>
+        <!-- قياس الشبكة (RF) -->
+        <div class="card">
+            <div class="card-header"><i class="fas fa-wifi"></i><h3>📡 قياس فولتات الشبكة (RF)</h3></div>
+            <div class="card-body">
+                <p>الأجهزة الحديثة تحتاج فولت 1.8V و 2.8V و 3.3V لتشغيل دائرة الـ RF.</p>
+                <ul class="step-list">
+                    <li><span class="step-number">1</span>ابحث عن مرشحات أو مكثفات بجانب IC المودم.</li>
+                    <li><span class="step-number">2</span>قس باستخدام DCV: إذا أحد الفولتات مفقود → لا شبكة أو ضعف إشارة.</li>
+                </ul>
+                <div class="warning-note">⚠️ تلف IC المودم أو مفتاح الهوائي يسبب فقداناً تاماً للشبكة.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== القسم الثاني: جميع الأعطال (شرح مفصل) ========== -->
+    <div class="section-sub"><i class="fas fa-stethoscope"></i> 2️⃣ تشخيص الأعطال الشائعة خطوة بخطوة</div>
+    <div class="cards-grid">
+        <div class="card"><div class="card-header"><i class="fas fa-power-off"></i><h3>⚡ عطل لا يفتح الهاتف (ميت)</h3></div><div class="card-body"><p><strong>الأسباب:</strong> بطارية منتهية، IC باور تالف، شورت في اللوحة الأم.</p><p><strong>خطوات التشخيص:</strong> 1- قياس جهد البطارية (إن أقل من 3.5V اشحنها خارجياً). 2- فحص وجود شورت بين Vbat و GND بواسطة الجرس. 3- باستخدام الباور سبلاي: إذا كان التيار 0.00A → انقطاع تغذية، إذا تيار عالي ثابت → شورت، إذا تيار متدرج طبيعي → مشكلة برمجية أو شاشة.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-plug"></i><h3>🔌 لا يشحن نهائياً</h3></div><div class="card-body"><p><strong>الأسباب:</strong> سوكت شحن مكسور، IC شحن محترق، فيوز منقطع.</p><p><strong>الفحص:</strong> قياس جهد VBUS على اللوحة (يجب 5V عند توصيل الشاحن). إذا 0V → سوكت تالف أو فيوز. إذا 5V موجود ولا يشحن → IC الشحن معطوب، استبدله.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-sun"></i><h3>💡 لا إضاءة خلفية (Blacklight)</h3></div><div class="card-body"><p><strong>الأسباب:</strong> IC backlight تالف، ملف boost مقطوع، دايود تالف.</p><p><strong>الحل:</strong> قس فولت الإضاءة (يجب 20-30V). إذا صفر: افحص مقاومة الملف (0.5-3Ω)، إن كانت مفتوحة استبدله، ثم جرب IC backlight جديد.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-wifi"></i><h3>📡 لا شبكة / ضعف إشارة</h3></div><div class="card-body"><p>الأسباب: هوائي مقطوع، IC RF تالف، نقص فولتات 1.8V/2.8V. التشخيص: قياس فولتات التغذية، فحص استمرارية مسار الهوائي، إعادة تسخين IC المودم أو استبداله.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-headphones"></i><h3>🎧 مشكلة الصوت (سماعة / ميكروفون)</h3></div><div class="card-body"><p><strong>السماعة:</strong> قس المقاومة (يجب 8Ω). إذا كانت مفتوحة استبدلها.<br><strong>الميكروفون:</strong> قس Bias (1.8-2.8V). إذا 0V → IC الصوت معطوب. إذا موجود والميكروفون لا يعمل → استبدل الميكروفون.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-hand-pointer"></i><h3>👆 اللمس لا يستجيب</h3></div><div class="card-body"><p>قياس فولت تغذية IC اللمس (1.8V و 3.3V). تأكد من توصيل كابل الشاشة. جرب شاشة أخرى. إذا لم تتحسن → IC اللمس تالف ويحتاج استبدال.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-battery-quarter"></i><h3>🔋 نفاد سريع جداً للبطارية</h3></div><div class="card-body"><p>السبب الأكبر: تسريب تيار (مكثف تالف أو IC باور يتسرب). قس تيار السكون بواسطة الباور سبلاي: يجب أقل من 10mA، إذا أعلى ابحث عن المكون الساخن واستبدله.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-thermometer-half"></i><h3>🌡️ سخونة زائدة</h3></div><div class="card-body"><p>شورت جزئي أو IC تالف. استخدم الكحول الإيزوبروبيلي: ضع قليلاً على اللوحة ثم شغّل، الجزء الذي يتبخر بسرعة هو الجزء الساخن (قصر داخلي). غيّر المكون.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-sync-alt"></i><h3>🔄 إعادة تشغيل مستمر (Bootloop)</h3></div><div class="card-body"><p>قد يكون بسبب زر الباور العالق، أو مشكلة في السوفتوير، أو لحام المعالج. جرب الدخول إلى وضع الـ Recovery، فإن لم ينجح فقد يحتاج إعادة تلبيس الـ CPU.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-wifi"></i><h3>📶 واي فاي وبلوتوث لا يعملان</h3></div><div class="card-body"><p>غالباً IC الواي فاي المشترك (Combo) هو المسؤول. قد يكون فولت 1.8V مفقوداً. استبدال IC الواي فاي يحل المشكلة في معظم الحالات.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-camera"></i><h3>📷 الكاميرا لا تعمل</h3></div><div class="card-body"><p>تأكد من توصيل كابل الكاميرا. قس فولت تغذية الكاميرا (عادة 2.8V). إذا فولتاتها موجودة والكاميرا لا تعمل → وحدة الكاميرا تالفة.</p></div></div>
+        <div class="card"><div class="card-header"><i class="fas fa-tint"></i><h3>💧 تلف السوائل (Water Damage)</h3></div><div class="card-body"><p>افتح الجهاز فوراً، نظف الأكسدة بالكحول، جفف جيداً. افحص الشورتات واستبدل IC التالف (غالباً PMIC أو مكثفات).</p></div></div>
+    </div>
+
+    <!-- ========== القسم الثالث: التشخيص التفاعلي الذكي (شجرة قرارات) ========== -->
+    <div class="diagnostic-wrapper">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <h2><i class="fas fa-microphone-alt"></i> 🤖 ابدأ التشخيص التفاعلي (اختر العطل وأجب)</h2>
+            <button class="btn-diagnose" id="startInteractiveBtn"><i class="fas fa-play"></i> بدء التشخيص</button>
+        </div>
+        <div id="interactiveDiagnosticArea" style="margin-top: 1.2rem;">
+            <!-- سيتم عرض الأسئلة والنتائج هنا -->
+        </div>
+    </div>
+    <footer>
+        <i class="fas fa-tools"></i> جميع القياسات والأعطال مذكورة بالتفصيل | استخدم الأفوميتر والباور سبلاي بحذر
+    </footer>
+</div>
+
+<script>
+    // قاعدة بيانات الأعطال مع أسئلة ونتائج (تشخيص تفاعلي متكامل)
+    const faultData = {
+        dead: {
+            name: "🪫 الهاتف لا يعمل (ميت)",
+            question: "بعد توصيل الباور سبلاي بجهد 4.2V، ماذا قرأت على الأمبير؟",
+            options: ["0.00 أمبير (لا تيار)", "تيار عالي ثابت (>0.7A)", "تيار متدرج 0.05-0.3A"],
+            getResult: (ans) => {
+                if(ans === "0.00 أمبير (لا تيار)") return { text: "🔌 **انقطاع في خط التغذية (B+)** – افحص فيوز البطارية، دايود الحماية، واسلاك اللوحة. ربما الـ PMIC لا يستقبل جهد.", status: "red" };
+                if(ans === "تيار عالي ثابت (>0.7A)") return { text: "🔥 **شورت قوي على اللوحة** – استخدم حقن جهد 1V من الباور سبلاي وابحث عن القطعة الساخنة (مكثف أو IC محترق).", status: "red" };
+                return { text: "✅ **التيار متدرج طبيعي** – الباور سبلاي يعمل. المشكلة قد تكون في البرمجيات (Bootloop) أو الشاشة التالفة. حاول إعادة تحميل الروم.", status: "green" };
+            }
+        },
+        noCharge: {
+            name: "🔌 لا يشحن",
+            question: "هل يوجد جهد 5V على طرف VBUS داخل اللوحة عند وضع الشاحن؟",
+            options: ["نعم، 5V موجود", "لا، الجهد صفر"],
+            getResult: (ans) => {
+                if(ans === "لا، الجهد صفر") return { text: "⚡ **عدم وصول 5V** → سوكت الشحن تالف أو فيوز الشحن منقطع. استبدل منفذ USB أو افحص الفيوز.", status: "red" };
+                return { text: "🔧 **5V موجود لكن لا يشحن** → IC الشحن معطوب (مثل BQ24195). استبدل IC وافحص ملف الشحن.", status: "red" };
+            }
+        },
+        noBacklight: {
+            name: "💡 لا إضاءة خلفية",
+            question: "بعد قياس فولت الباكلايت، ماذا وجدت؟",
+            options: ["0V أو أقل من 5V", "16V-30V طبيعي لكن لا إضاءة"],
+            getResult: (ans) => {
+                if(ans === "0V أو أقل من 5V") return { text: "💡 **انعدام جهد الباكلايت** → افحص ملف Boost (مقاومة 0.5-3Ω) ودايود الباكلايت. إذا كانا سليمين استبدل IC backlight.", status: "red" };
+                return { text: "🟢 **فولت الباكلايت سليم** → المشكلة في الشاشة نفسها أو كابل الشاشة. جرب شاشة أخرى.", status: "green" };
+            }
+        },
+        network: {
+            name: "📡 لا شبكة / ضعف إشارة",
+            question: "كيف يتعامل الهاتف مع شريحة SIM؟",
+            options: ["لا يقرأ الشريحة (لا توجد SIM)", "يقرأ الشريحة لكن لا شبكة", "يقرأ وتظهر الشبكة لكن ضعيفة"],
+            getResult: (ans) => {
+                if(ans === "لا يقرأ الشريحة (لا توجد SIM)") return { text: "📇 **قارئ SIM معطل** → نظف سوكت الشريحة وافحص المسارات حتى IC الشبكة.", status: "red" };
+                if(ans === "يقرأ الشريحة لكن لا شبكة") return { text: "📡 **مشكلة في دائرة RF** → قس فولتات 1.8V و 2.8V على IC المودم، وافحص استمرارية الهوائي.", status: "red" };
+                return { text: "🟠 **ضعف إشارة** -> قد يكون الهوائي تالفاً أو مفتاح Antenna Switch معطوب. جرب إعادة تسخين IC المودم.", status: "red" };
+            }
+        },
+        audio: {
+            name: "🎧 عطل الصوت / الميكروفون",
+            question: "أي مشكلة تواجه؟",
+            options: ["السماعة الخارجية لا تعمل", "الميكروفون لا يعمل", "سماعة المكالمة فقط لا تعمل"],
+            getResult: (ans) => {
+                if(ans === "السماعة الخارجية لا تعمل") return { text: "🔊 **السماعة**: قس مقاومتها (~8Ω). إذا كانت مفتوحة استبدلها. إذا سليمة فحص IC مكبر الصوت.", status: "red" };
+                if(ans === "الميكروفون لا يعمل") return { text: "🎙️ **الميكروفون**: قس Bias (يجب 1.8-2.8V). إذا 0V → IC الصوت معطوب. إذا موجود → الميكروفون تالف.", status: "red" };
+                return { text: "📞 **سماعة المكالمة**: نظف شبكتها، قس مقاومتها (عادة 32Ω)، إن كانت تالفة استبدلها.", status: "red" };
+            }
+        },
+        touch: {
+            name: "👆 اللمس لا يستجيب",
+            question: "هل الشاشة تعرض صورة طبيعية؟",
+            options: ["نعم الصورة واضحة", "لا، خطوط أو تشويش"],
+            getResult: (ans) => {
+                if(ans === "لا، خطوط أو تشويش") return { text: "⚠️ **مشكلة في كابل الشاشة أو الشاشة نفسها** → أعد تركيب الكابل وجرب شاشة أخرى.", status: "red" };
+                return { text: "📌 **اللمس لا يعمل رغم سلامة الصورة** → قس فولت 1.8V و 3.3V لتغذية IC اللمس، إذا كانا موجودين ف IC اللمس تالف.", status: "red" };
+            }
+        },
+        batteryDrain: {
+            name: "🔋 نفاد سريع جداً للبطارية",
+            question: "هل تلاحظ سخونة في الهاتف حتى في وضع الراحة؟",
+            options: ["نعم، ساخن", "لا، بارد"],
+            getResult: (ans) => {
+                if(ans === "نعم، ساخن") return { text: "🔥 **تسريب تيار مرتفع (شورت جزئي)** → استخدم الكحول أو التصوير الحراري لتحديد المكثف الساخن واستبدله.", status: "red" };
+                return { text: "🔋 **البطارية نفسها تالفة أو عمرها انتهى** → استبدل البطارية.", status: "green" };
+            }
+        },
+        overheat: {
+            name: "🌡️ سخونة زائدة مستمرة",
+            question: "أين تتركز الحرارة غالباً؟",
+            options: ["منطقة IC الباور (PMIC)", "منطقة الشحن", "منطقة المعالج"],
+            getResult: (ans) => {
+                if(ans === "منطقة IC الباور (PMIC)") return { text: "⚠️ **IC PMIC معطوب أو مكثفات مرشح تالفة** → استبدل المكثفات أولاً فإن لم تتحسن استبدل الـ PMIC.", status: "red" };
+                if(ans === "منطقة الشحن") return { text: "🔌 **IC الشحن تالف حتى بدون شاحن** → استبدل IC الشحن فوراً.", status: "red" };
+                return { text: "🧠 **المعالج أو الرام يسخن** → قد يحتاج إعادة تلبيس (reballing) أو استبدال.", status: "red" };
+            }
+        },
+        bootloop: {
+            name: "🔄 إعادة تشغيل مستمر (Bootloop)",
+            question: "ما الذي يظهر على الشاشة؟",
+            options: ["شعار ثم يعيد التشغيل", "يتجمد على الشعار", "يطفأ فوراً بعد ثوان"],
+            getResult: (ans) => {
+                if(ans === "شعار ثم يعيد التشغيل") return { text: "⚙️ **مشكلة برمجية غالباً** → حاول دخول الـ Recovery ومسح الكاش أو إعادة تثبيت الروم.", status: "red" };
+                if(ans === "يتجمد على الشعار") return { text: "🔧 **زر الباور عالق أو عطل في لحام CPU** → افصل زر البوتر وجرب.", status: "red" };
+                return { text: "🔋 **بطارية ضعيفة جداً** → اشحن البطارية خارجياً أو استبدلها.", status: "red" };
+            }
+        }
+    };
+
+    let currentFaultKey = null;
+    let currentAnswer = null;
+
+    const interactiveArea = document.getElementById('interactiveDiagnosticArea');
+
+    function showFaultSelection() {
+        let faultButtons = '';
+        for (let [key, fault] of Object.entries(faultData)) {
+            faultButtons += `<button class="btn-option" data-fault="${key}">${fault.name}</button> `;
+        }
+        interactiveArea.innerHTML = `
+            <div class="question-area">
+                <p><strong><i class="fas fa-question-circle"></i> اختر العطل الذي تعاني منه:</strong></p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">${faultButtons}</div>
+                <div class="warning-note" style="margin-top:10px;">⚠️ بعد اختيار العطل، ستظهر أسئلة محددة لتشخيص دقيق.</div>
+            </div>
+        `;
+        document.querySelectorAll('[data-fault]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                currentFaultKey = btn.getAttribute('data-fault');
+                askQuestionForFault();
+            });
+        });
+    }
+
+    function askQuestionForFault() {
+        const fault = faultData[currentFaultKey];
+        if (!fault) return;
+        const optionsHtml = fault.options.map(opt => `<button class="btn-option" data-opt="${opt.replace(/"/g, '&quot;')}">${opt}</button>`).join('');
+        interactiveArea.innerHTML = `
+            <div class="question-area">
+                <p><strong><i class="fas fa-microphone-alt"></i> ${fault.question}</strong></p>
+                <div style="margin: 12px 0;">${optionsHtml}</div>
+            </div>
+        `;
+        document.querySelectorAll('[data-opt]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                currentAnswer = btn.getAttribute('data-opt');
+                showDiagnosticResult();
+            });
+        });
+    }
+
+    function showDiagnosticResult() {
+        const fault = faultData[currentFaultKey];
+        const result = fault.getResult(currentAnswer);
+        const statusClass = result.status === 'green' ? 'status-green' : 'status-red';
+        const statusText = result.status === 'green' ? '✅ نتيجة: حالة سليمة أو قابلة للحل' : '⚠️ نتيجة: عطل مؤكد';
+        interactiveArea.innerHTML = `
+            <div class="question-area" style="background:#f0f9f6;">
+                <div><span class="${statusClass}">${statusText}</span></div>
+                <p style="margin-top: 12px; font-size:1rem;">${result.text}</p>
+                <hr>
+                <button class="btn-diagnose" id="restartDiagnostic" style="background:#1e6f5c;">🔄 تشخيص عطل جديد</button>
+            </div>
+        `;
+        document.getElementById('restartDiagnostic')?.addEventListener('click', () => {
+            showFaultSelection();
+        });
+    }
+
+    document.getElementById('startInteractiveBtn').addEventListener('click', () => {
+        showFaultSelection();
+    });
+
+    // بدء التشخيص بقائمة الأعطال
+    showFaultSelection();
+</script>
+</body>
+</html>
